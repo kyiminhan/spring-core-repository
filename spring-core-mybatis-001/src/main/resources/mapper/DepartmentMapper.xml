@@ -1,0 +1,58 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.core.java.spring.dao.mapper.DepartmentMapper">
+	<cache />
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id"
+		keyColumn="id"
+		parameterType="com.core.java.spring.entity.Department"
+		flushCache="true" statementType="PREPARED" timeout="20">
+
+		INSERT INTO
+		DEPARTMENT
+		(DEPARTMENTNAME)
+		VALUE
+		(#{departmentName})
+	</insert>
+
+	<update id="update"
+		parameterType="com.core.java.spring.entity.Department"
+		flushCache="true" statementType="PREPARED" timeout="20">
+
+		UPDATE DEPARTMENT
+		SET
+		DEPARTMENTNAME = #{departmentName}
+		WHERE ID = #{id}
+	</update>
+
+	<select id="findById" parameterType="Integer"
+		resultType="com.core.java.spring.entity.Department"
+		flushCache="true" statementType="PREPARED" timeout="20">
+
+		SELECT *
+		FROM
+		DEPARTMENT
+		WHERE ID = #{ID}
+
+	</select>
+
+	<delete id="delete"
+		parameterType="com.core.java.spring.entity.Department"
+		flushCache="true" statementType="PREPARED" timeout="20">
+
+		DELETE
+		FROM
+		DEPARTMENT
+		WHERE ID = #{id}
+	</delete>
+
+	<select id="getAll" resultType="com.core.java.spring.entity.Department">
+		SELECT * FROM DEPARTMENT
+	</select>
+
+	<delete id="deleteAll">
+		DELETE
+		FROM
+		DEPARTMENT
+	</delete>
+</mapper>

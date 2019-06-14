@@ -1,0 +1,59 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.core.java.spring.dao.mapper.EmployeeMapper">
+	<cache />
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="id"
+		keyColumn="id" parameterType="com.core.java.spring.entity.Employee"
+		flushCache="true" statementType="PREPARED" timeout="20">
+
+		INSERT INTO
+		EMPLOYEE
+		(NAME, EMAIL, ADDRESS, PHONE)
+		VALUE
+		(#{name},#{email},#{address}, #{phone})
+	</insert>
+
+	<update id="update"
+		parameterType="com.core.java.spring.entity.Employee" flushCache="true"
+		statementType="PREPARED" timeout="20">
+
+		UPDATE EMPLOYEE
+		SET
+		NAME = #{name}
+		,EMAIL = #{email}
+		,ADDRESS = #{address}
+		,PHONE = #{phone}
+		WHERE ID = #{id}
+	</update>
+
+	<select id="findById" parameterType="Integer"
+		resultType="com.core.java.spring.entity.Employee" flushCache="true"
+		statementType="PREPARED" timeout="20">
+
+		SELECT *
+		FROM EMPLOYEE
+		WHERE ID = #{ID}
+
+	</select>
+
+	<delete id="delete"
+		parameterType="com.core.java.spring.entity.Employee" flushCache="true"
+		statementType="PREPARED" timeout="20">
+
+		DELETE
+		FROM EMPLOYEE
+		WHERE ID = #{id}
+	</delete>
+
+	<select id="getAll"
+		resultType="com.core.java.spring.entity.Employee">
+		SELECT * FROM EMPLOYEE
+	</select>
+
+	<delete id="deleteAll">
+		DELETE
+		FROM
+		EMPLOYEE
+	</delete>
+</mapper>
