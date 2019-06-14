@@ -11,7 +11,7 @@ import com.core.java.spring.service.EmployeeService;
  * @author kyiminhan </BR>
  * @version 1.0 </BR>
  * @since 2019/06/14 </BR>
- * spring-core-mybatis-001 system </BR>
+ * spring-core-jpa-001 system </BR>
  * com.core.java.spring.app </BR>
  * App.java </BR>
  */
@@ -27,7 +27,10 @@ public class App {
 		final EmployeeService employeeService = ((EmployeeService) BeanUtils.getBean(Bean.EMPLOYEEMENT_SERVICE));
 		final DepartmentService departmentService = ((DepartmentService) BeanUtils.getBean(Bean.DEPARTMENT_SERVICE));
 
-		employeeService.getAll().forEach(emp -> System.out.println(emp));
-		departmentService.getAll().forEach(dep -> System.out.println(dep));
+		employeeService.loadInitData();
+		departmentService.loadInitData();
+
+		employeeService.findAll().forEach(emp -> System.out.println(emp));
+		departmentService.findAll().forEach(dep -> System.out.println(dep));
 	}
 }
