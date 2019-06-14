@@ -19,16 +19,12 @@ import lombok.ToString;
  */
 @Getter
 @Setter
-
-/**
- * Instantiates a new department.
- */
+@ToString
 
 /**
  * Instantiates a new department.
  */
 @NoArgsConstructor
-@ToString
 public class Department implements Serializable {
 
 	/** The Constant serialVersionUID. */
@@ -39,40 +35,4 @@ public class Department implements Serializable {
 
 	/** The department name. */
 	private String departmentName;
-
-	/**
-	 * Gets the id.
-	 *
-	 * @return the id
-	 */
-	public Integer getId() {
-		return this.id;
-	}
-
-	/**
-	 * Sets the id.
-	 *
-	 * @param id the new id
-	 */
-	public void setId(final Integer id) {
-		this.id = id;
-	}
-
-	/**
-	 * Gets the department name.
-	 *
-	 * @return the department name
-	 */
-	public String getDepartmentName() {
-		return this.departmentName;
-	}
-
-	/**
-	 * Sets the department name.
-	 *
-	 * @param departmentName the new department name
-	 */
-	public void setDepartmentName(final String departmentName) {
-		this.departmentName = departmentName;
-	}
 }

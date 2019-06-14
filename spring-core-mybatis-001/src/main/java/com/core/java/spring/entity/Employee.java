@@ -23,10 +23,6 @@ import lombok.ToString;
 /**
  * Instantiates a new employee.
  */
-
-/**
- * Instantiates a new employee.
- */
 @NoArgsConstructor
 @ToString
 public class Employee implements Serializable {

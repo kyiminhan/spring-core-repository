@@ -88,6 +88,9 @@ public class DepartmentDaoImpl implements DepartmentDao {
 		return this.mapper.save(department);
 	}
 
+	/**
+	 * Delete all.
+	 */
 	@Override
 	public void deleteAll() {
 		this.mapper.deleteAll();
