@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  *
  * @author kyiminhan </BR>
  * @version 1.0 </BR>
- * @since 2019/06/14 </BR>
+ * @since 2019/06/17 </BR>
  * spring-core-mybatis-001 system </BR>
  * com.core.java.spring.config </BR>
  * BeanUtils.java </BR>
@@ -48,10 +48,10 @@ public class BeanUtils {
 		Object obj = null;
 		switch (beanType) {
 		case DEPARTMENT_SERVICE:
-			obj = BeanUtils.getInstance().getContext().getBean("departmentServiceImpl");
+			obj = BeanUtils.getInstance().getContext().getBean(BeanName.DEPARTMENT_SERVICE_IMPL);
 			break;
 		case EMPLOYEEMENT_SERVICE:
-			obj = BeanUtils.getInstance().getContext().getBean("employeeServiceImpl");
+			obj = BeanUtils.getInstance().getContext().getBean(BeanName.EMPLOYEE_SERVICE_IMPL);
 			break;
 		}
 		return obj;

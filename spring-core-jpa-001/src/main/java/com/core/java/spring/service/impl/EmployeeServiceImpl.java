@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.core.java.spring.config.BeanName;
 import com.core.java.spring.entity.Employee;
 import com.core.java.spring.repo.EmployeeRepo;
 import com.core.java.spring.service.EmployeeService;
@@ -15,12 +16,12 @@ import com.core.java.spring.service.EmployeeService;
  *
  * @author kyiminhan </BR>
  * @version 1.0 </BR>
- * @since 2019/06/14 </BR>
+ * @since 2019/06/17 </BR>
  * spring-core-jpa-001 system </BR>
  * com.core.java.spring.service.impl </BR>
  * EmployeeServiceImpl.java </BR>
  */
-@Service(value = "employeeServiceImpl")
+@Service(value = BeanName.EMPLOYEE_SERVICE_IMPL)
 public class EmployeeServiceImpl implements EmployeeService {
 
 	/** The employee repo. */
@@ -83,7 +84,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 						.email("kyiminhan" + count + "@gmail.com").address("Tokyo").phone("0987654321234").build());
 				count++;
 
-			} while (count < 100);
+			} while (count <= 100);
 		}
 	}
 }

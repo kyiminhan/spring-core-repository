@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.core.java.spring.config.BeanName;
 import com.core.java.spring.entity.Department;
 import com.core.java.spring.repo.DepartmentRepo;
 import com.core.java.spring.service.DepartmentService;
@@ -15,12 +16,12 @@ import com.core.java.spring.service.DepartmentService;
  *
  * @author kyiminhan </BR>
  * @version 1.0 </BR>
- * @since 2019/06/14 </BR>
+ * @since 2019/06/17 </BR>
  * spring-core-jpa-001 system </BR>
  * com.core.java.spring.service.impl </BR>
  * DepartmentServiceImpl.java </BR>
  */
-@Service(value = "departmentServiceImpl")
+@Service(value = BeanName.DEPARTMENT_SERVICE_IMPL)
 public class DepartmentServiceImpl implements DepartmentService {
 
 	/** The department repo. */
@@ -76,7 +77,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 				this.departmentRepo.save(Department.builder().departmentName("Software Department " + count).build());
 				count++;
 
-			} while (count < 100);
+			} while (count <= 100);
 		}
 	}
 }

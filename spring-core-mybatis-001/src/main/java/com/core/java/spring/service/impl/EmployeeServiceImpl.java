@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.core.java.spring.config.BeanName;
 import com.core.java.spring.dao.EmployeeDao;
 import com.core.java.spring.entity.Employee;
 import com.core.java.spring.service.EmployeeService;
@@ -14,12 +15,12 @@ import com.core.java.spring.service.EmployeeService;
  *
  * @author kyiminhan </BR>
  * @version 1.0 </BR>
- * @since 2019/06/14 </BR>
+ * @since 2019/06/17 </BR>
  * spring-core-mybatis-001 system </BR>
  * com.core.java.spring.service.impl </BR>
  * EmployeeServiceImpl.java </BR>
  */
-@Service(value = "employeeServiceImpl")
+@Service(value = BeanName.EMPLOYEE_SERVICE_IMPL)
 public class EmployeeServiceImpl implements EmployeeService {
 
 	/** The employee dao. */
