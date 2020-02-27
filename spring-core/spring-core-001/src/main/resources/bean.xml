@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="employeeController"
+		class="com.kmh.spring.controller.EmployeeController">
+		<!-- <property name="employeeService" ref="employeeService" /> -->
+		<constructor-arg name="employeeService"
+			ref="employeeService" />
+	</bean>
+
+	<bean id="employeeService"
+		class="com.kmh.spring.service.impl.EmployeeServiceImpl">
+		<!-- <property name="employeeDao" ref="employeeDao" /> -->
+		<constructor-arg name="employeeDao" ref="employeeDao" />
+	</bean>
+
+	<bean id="employeeDao"
+		class="com.kmh.spring.dao.impl.EmployeeDaoImpl">
+	</bean>
+
+</beans>
