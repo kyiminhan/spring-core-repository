@@ -27,7 +27,7 @@ public class App implements CommandLineRunner {
 		Employee employee = new Employee(null, "Kyi", "Min Han", "kyiminhan@gmail.com", "Tokyo, Japan");
 		employeeService.save(employee);
 
-		Employee employee2 = employeeService.getEmployee(1);
+		Employee employee2 = employeeService.get(1);
 		System.out.println(employee2);
 
 		Employee employee3 = employeeDao.findByCustom(1).orElse(null);

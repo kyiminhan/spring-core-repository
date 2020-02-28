@@ -13,7 +13,7 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	public Employee getEmployee(int id) {
-		Employee employee = employeeService.getEmployee(id);
+		Employee employee = employeeService.get(id);
 		return employee;
 	}
 }

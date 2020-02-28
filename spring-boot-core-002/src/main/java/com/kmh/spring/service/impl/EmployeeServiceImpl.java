@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	private EmployeeDao employeeDao;
 
 	@Override
-	public Employee getEmployee(Integer id) {
+	public Employee get(Integer id) {
 		Employee employee = employeeDao.findById(id).orElse(null);
 		return employee;
 	}
@@ -34,12 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void delete(Employee employee) {
-		employeeDao.delete(employee);
-	}
-
-	@Override
-	public void deleteById(Integer id) {
+	public void delete(Integer id) {
 		employeeDao.deleteById(id);
 	}
 
