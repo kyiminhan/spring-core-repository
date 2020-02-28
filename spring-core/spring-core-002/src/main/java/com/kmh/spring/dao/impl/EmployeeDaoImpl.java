@@ -1,27 +1,33 @@
 package com.kmh.spring.dao.impl;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import com.kmh.spring.dao.EmployeeDao;
 import com.kmh.spring.dto.Employee;
-import com.kmh.spring.dto.LoadData;
+import com.kmh.spring.dto.MockDB;
 
-/**
- * @author ECW-PC-103
- *
- */
-@Repository
 public class EmployeeDaoImpl implements EmployeeDao {
 
-	/**
-	 * find employee same with the specify id.
-	 * 
-	 * @param id
-	 * @return
-	 * @return
-	 */
+	private MockDB mockDB;
+
 	@Override
 	public Employee findById(int id) {
-		return LoadData.getEmployeeData().stream().filter(emp -> id == emp.getId()).findFirst().orElse(null);
+
+		List<Employee> employeeData = mockDB.getEmployeeData();
+		Employee employee = employeeData.stream().filter(e -> id == e.getId()).findFirst().orElse(null);
+		return employee;
+	}
+
+	@Override
+	public Employee findByEmail(int id) {
+		List<Employee> employeeData = mockDB.getEmployeeData();
+		Employee employee = employeeData.stream().filter(e -> id == e.getId()).findFirst().orElse(null);
+		return employee;
+	}
+
+	@Override
+	public List<Employee> findAll() {
+		List<Employee> employeeData = mockDB.getEmployeeData();
+		return employeeData;
 	}
 }

@@ -11,13 +11,24 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<modules>
+		<module>spring-core-001</module>
 		<module>spring-core-002</module>
+		<module>spring-core-003</module>
+		<module>spring-core-004</module>
+		<module>spring-core-005</module>
+		<module>spring-core-006</module>
+		<module>spring-core-007</module>
 	</modules>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
+			<version>5.2.3.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
 			<version>5.2.3.RELEASE</version>
 		</dependency>
 		<dependency>

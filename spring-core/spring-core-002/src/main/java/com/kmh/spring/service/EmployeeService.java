@@ -4,9 +4,5 @@ import com.kmh.spring.dto.Employee;
 
 public interface EmployeeService {
 
-	/**
-	 * @param id
-	 * @return
-	 */
 	Employee getEmployee(int id);
 }
