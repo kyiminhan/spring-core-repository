@@ -34,9 +34,7 @@
 
 				<div>
 					<form th:method="post" th:object="${employee}">
-
 						<input type="hidden" th:field="*{id}" />
-
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm">
 								<h5 th:text="${employee.id == null} ? 'CREATE' : 'EDIT'"></h5>
@@ -50,7 +48,7 @@
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm">
 								<div class="form-group">
-									<label for="txtFirstName" class="mb-0">First Name</label> <input
+									<label for="txtFirstName" class="small mb-0">First Name</label> <input
 										type="text" th:field="*{firstName}"
 										class="form-control form-control-sm" id="txtFirstName"
 										tabindex="1" autofocus="autofocus" required="required">
@@ -58,7 +56,7 @@
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm mb-0">
 								<div class="form-group">
-									<label for="txtLastName" class="mb-0">Last Name</label> <input
+									<label for="txtLastName" class="small mb-0">Last Name</label> <input
 										type="text" th:field="*{lastName}"
 										class="form-control form-control-sm" id="txtLastName"
 										tabindex="2" required="required">
@@ -68,7 +66,7 @@
 						<div class="row">
 							<div class="col-lg col-md col-sm">
 								<div class="form-group">
-									<label for="txtEmail" class="mb-0">Email</label> <input
+									<label for="txtEmail" class="small mb-0">Email</label> <input
 										type="email" th:field="*{email}"
 										class="form-control form-control-sm" id="txtEmail"
 										tabindex="3" required="required">
@@ -78,7 +76,7 @@
 						<div class="row">
 							<div class="col-lg col-md col-sm">
 								<div class="form-group">
-									<label for="txtAddress">Address</label>
+									<label for="txtAddress" class="small mb-0">Address</label>
 									<textarea class="form-control form-control-sm" id="txtAddress"
 										th:field="*{address}" rows="3" tabindex="4"
 										required="required"></textarea>
@@ -101,16 +99,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="employee:${employees}">
-								<th class="text-center" th:text="${employee.id}"></th>
-								<th th:text="${employee.firstName} +' '+ ${employee.lastName}"></th>
-								<th th:text="${employee.email}"></th>
-								<th th:text="${employee.address}"></th>
+							<tr th:if="${employees!=null and !employees.empty}"
+								th:each="employee:${employees}">
+								<td class="text-center small" th:text="${employee.id}"></td>
+								<td class="small"
+									th:text="${employee.firstName} +' '+ ${employee.lastName}"></td>
+								<td class="small" th:text="${employee.email}"></td>
+								<td class="small" th:text="${employee.address}"></td>
 								<td class="text-center" width="10%"><a class="far fa-edit"
 									th:href="@{/edit/__${employee.id}__}"></a></td>
 								<td class="text-center" width="10%"><a
 									class="far fa-trash-alt"
 									th:href="@{/delete/__${employee.id}__}"></a></td>
+							</tr>
+							<tr th:if="${employees.empty}">
+								<td colspan="6">There is no employee information.</td>
 							</tr>
 						</tbody>
 					</table>
