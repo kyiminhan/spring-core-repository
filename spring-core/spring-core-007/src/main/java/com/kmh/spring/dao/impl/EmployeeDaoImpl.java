@@ -24,9 +24,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee findByEmail(int id) {
+	public Employee findByEmail(String email) {
 		List<Employee> employeeData = mockDB.getEmployeeData();
-		Employee employee = employeeData.stream().filter(e -> id == e.getId()).findFirst().orElse(null);
+		Employee employee = employeeData.stream().filter(e -> e.getEmail().equals(email)).findFirst().orElse(null);
 		return employee;
 	}
 

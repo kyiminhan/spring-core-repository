@@ -8,7 +8,7 @@ public interface EmployeeDao {
 
 	Employee findById(int id);
 
-	Employee findByEmail(int id);
+	Employee findByEmail(String email);
 
 	List<Employee> findAll();
 }

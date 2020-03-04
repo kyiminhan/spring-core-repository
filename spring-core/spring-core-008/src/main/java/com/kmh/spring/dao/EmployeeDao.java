@@ -11,4 +11,8 @@ public interface EmployeeDao {
 	Employee findByEmail(String email);
 
 	List<Employee> findAll();
+
+	void insert(Employee employee);
+
+	void update(Employee employee);
 }
