@@ -19,6 +19,7 @@
 		<module>spring-core-006</module>
 		<module>spring-core-007</module>
 		<module>spring-core-008</module>
+		<module>spring-core-009</module>
 	</modules>
 
 	<dependencies>
@@ -41,6 +42,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>5.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
 		</dependency>
 	</dependencies>
 </project>
