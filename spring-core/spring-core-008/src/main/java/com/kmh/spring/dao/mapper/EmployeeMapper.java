@@ -1,4 +1,4 @@
-package com.kmh.spring.dto.mapper;
+package com.kmh.spring.dao.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
