@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kyiminhan</groupId>
-	<artifactId>spring-core-mvc-001</artifactId>
+	<artifactId>spring-core-mvc-002</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<properties>
@@ -28,16 +28,6 @@
 			<version>3.0.11.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>2.2.5.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.4.12.Final</version>
-		</dependency>
-		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.19</version>
@@ -45,12 +35,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
+			<artifactId>spring-jdbc</artifactId>
 			<version>5.2.4.RELEASE</version>
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>spring-mvc-001</finalName>
+		<finalName>spring-mvc-002</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
