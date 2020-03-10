@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon.ico">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<title>Spring MVC</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<a class="navbar-brand" th:href="@{/}">Spring MVC</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
+				</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<main>
+		<div class="jumbotron jumbotron-fluid pt-3">
+			<div class="container">
+
+				<div>
+					<form th:method="post" th:object="${employee}">
+						<input type="hidden" th:field="*{id}" />
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm">
+								<h5 th:text="${employee.id == null} ? 'CREATE' : 'EDIT'"></h5>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm">
+								<button type="submit"
+									class="btn btn-sm btn-info col-lg-2 col-md-2 col-sm-2 float-right">Save</button>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm">
+								<div class="form-group">
+									<label for="txtFirstName" class="small mb-0">First Name</label>
+									<input type="text" th:field="*{firstName}"
+										class="form-control form-control-sm" id="txtFirstName"
+										tabindex="1" autofocus="autofocus" required="required">
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm mb-0">
+								<div class="form-group">
+									<label for="txtLastName" class="small mb-0">Last Name</label> <input
+										type="text" th:field="*{lastName}"
+										class="form-control form-control-sm" id="txtLastName"
+										tabindex="2" required="required">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg col-md col-sm">
+								<div class="form-group">
+									<label for="txtEmail" class="small mb-0">Email</label> <input
+										type="email" th:field="*{email}"
+										class="form-control form-control-sm" id="txtEmail"
+										tabindex="3" required="required">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg col-md col-sm">
+								<div class="form-group">
+									<label for="txtAddress" class="small mb-0">Address</label>
+									<textarea class="form-control form-control-sm" id="txtAddress"
+										th:field="*{address}" rows="3" tabindex="4"
+										required="required"></textarea>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<hr>
+				<div class="table-responsive">
+					<table
+						class="table table-bordered table-hover table-striped table-sm">
+						<thead class="bg-info">
+							<tr class="text-center">
+								<th width="10%">ID</th>
+								<th width="20%">Name</th>
+								<th width="20%">Email</th>
+								<th width="30">Address</th>
+								<th colspan="2" width="20%">Edit/Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${employees!=null and !employees.empty}"
+								th:each="employee:${employees}">
+								<td class="text-center small">[[${employee.id}]]></td>
+								<td class="small">[[${employee.firstName} + ' ' +
+									${employee.lastName}]]</td>
+								<td class="small">[[${employee.email}]]</td>
+								<td class="small">[[${employee.address}]]</td>
+								<td class="text-center" width="10%"><a class="far fa-edit"
+									th:href="@{|/edit/${employee.id}|}"></a></td>
+								<td class="text-center" width="10%"><a
+									class="far fa-trash-alt" th:href="@{|/delete/${employee.id}|}"></a></td>
+							</tr>
+							<tr th:if="${employees.empty}">
+								<td colspan="6">There is no employee information.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#txtAddress").autocomplete({
+				source : function(request, response) {
+					$.ajax({
+						url : "http://localhost:8081/spring-mvc-003/searchCity",
+						dataType : "json",
+						data : {
+							q : request.term
+						},
+						success : function(data) {
+							//alert(data);
+							console.log(data);
+							response(data);
+						}
+					});
+				},
+				minLength : 2
+			});
+		});
+	</script>
+
+	<!-- 	https://www.roytuts.com/spring-boot-mvc-autocomplete/ -->
+</body>
+</html>
